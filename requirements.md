@@ -22,7 +22,7 @@ npm i react@16.12 -E
 * reselect@4
 
 ## devDependencies
-
+1 Added names to Readme.
 * @babel/core@7.12
 * @babel/preset-env@7.12
 * @babel/preset-react@7.12
