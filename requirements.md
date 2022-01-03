@@ -23,17 +23,17 @@ npm i react@16.12 -E
 
 ## devDependencies
 1 Added names to Readme.
-* @babel/core@7.12
-* @babel/preset-env@7.12
-* @babel/preset-react@7.12
+* @babel/core@7.12 //
+* @babel/preset-env@7.12 //
+* @babel/preset-react@7.12 //
 * axios-mock-adapter@1.19
-* babel-loader@8.2
-* eslint@7.18
-* eslint-config-htmlacademy@2.1
-* eslint-plugin-react@7.22
+* babel-loader@8.2 //
+* eslint@7.18 //
+* eslint-config-htmlacademy@2.1 //
+* eslint-plugin-react@7.22 //
 * jest@26.6
 * @testing-library/react@11.2
 * redux-mock-store@1.5
-* webpack@4.46
-* webpack-cli@3.3
-* webpack-dev-server@3.11
+* webpack@4.46 //
+* webpack-cli@3.3 //
+* webpack-dev-server@3.11 //
