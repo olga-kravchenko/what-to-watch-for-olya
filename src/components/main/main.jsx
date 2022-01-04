@@ -15,7 +15,7 @@ const Main = ({genre, year}) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header/>
+        <Header type="movie"/>
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -56,7 +56,7 @@ const Main = ({genre, year}) => {
 
           <Genres/>
 
-          <Films/>
+          <Films quantity={12}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
