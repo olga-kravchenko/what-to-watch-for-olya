@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import Header from "../header/header";
 import Genres from "../genres/genres";
 import Footer from "../footer/footer";
+import {films} from "../../mocks/films";
 
 const Main = ({genre, year}) => {
+  console.log(films);
   return (
     <>
       <section className="movie-card">
