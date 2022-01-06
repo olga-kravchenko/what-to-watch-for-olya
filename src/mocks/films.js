@@ -49,9 +49,9 @@ const generateFilm = () => {
   return {
     "id": nanoid(),
     "name": getRandomValue(FILMS_NAME),
-    "poster_image": getRandomValue(POSTERS_IMG),
-    "preview_image": `img/the-grand-budapest-hotel.jpg`,
-    "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
+    "poster_image": `img/the-grand-budapest-hotel-poster.jpg`,
+    "preview_image": getRandomValue(POSTERS_IMG),
+    "background_image": "img/bg-the-grand-budapest-hotel.jpg",
     "background_color": `#ffffff`,
     "video_link": getRandomValue(VIDEOS),
     "preview_video_link": getRandomValue(VIDEOS),
@@ -82,4 +82,4 @@ const generateReviews = () => {
 
 const films = new Array(8).fill(null).map(generateFilm);
 
-export {films, generateReviews};
+export {films, generateReviews, generateFilm, getRandomNumber};

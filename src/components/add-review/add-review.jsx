@@ -1,21 +1,28 @@
 import React from "react";
 import Header from "../header/header";
+import {useParams} from "react-router-dom";
+import ReviewStar from "../review-star/review-star";
 
-const AddReview = () => {
+const AddReview = ({films}) => {
+  const {id} = useParams();
+  const index = films.findIndex((film) => film.id === id);
+  const film = films[index];
+  const {name, background_image, poster_image} = film;
+
   const starQuantity = Array.from({length: 10}, (_, index) => index + 1);
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={background_image} alt={name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header/>
+        <Header film={film}/>
 
         <div className="movie-card__poster movie-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+          <img src={poster_image} alt="The Grand Budapest Hotel poster" width="218"
             height="327"/>
         </div>
       </div>
@@ -24,11 +31,8 @@ const AddReview = () => {
         <form action="#" className="add-review__form">
           <div className="rating">
             <div className="rating__stars">
-              {starQuantity.map((number) => (
-                <>
-                  <input className="rating__input" id={`star-${number}`} type="radio" name="rating" value={number}/>
-                  <label className="rating__label" htmlFor={`star-${number}`}>Rating {number}</label>
-                </>))}
+              {starQuantity.map((number, i) => (
+                <ReviewStar number={number} key={i}/>))}
             </div>
           </div>
 

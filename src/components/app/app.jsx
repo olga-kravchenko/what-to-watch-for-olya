@@ -20,16 +20,16 @@ const App = ({films, genre, year}) => {
           <Login/>
         </Route>
         <Route path="/mylist" exact>
-          <MyList/>
+          <MyList films={films}/>
         </Route>
         <Route path="/films/:id" exact>
-          <Film/>
+          <Film films={films}/>
         </Route>
         <Route path="/films/:id/review" exact>
-          <AddReview/>
+          <AddReview films={films}/>
         </Route>
         <Route path="/player/:id" exact>
-          <Player/>
+          <Player films={films}/>
         </Route>
         <Route>
           <PageNotFound/>
