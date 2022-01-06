@@ -2,16 +2,15 @@ import React from "react";
 import FilmCard from "../film-card/film-card";
 import PropTypes from "prop-types";
 
-const Films = ({quantity}) => {
-  const films = new Array(quantity).fill();
+const Films = ({films}) => {
   return (
     <div className="catalog__movies-list">
-      {films.map((_, i) => <FilmCard key={i} />)}
+      {films.map((film, i) => <FilmCard film={film} key={i} />)}
     </div>);
 };
 
 Films.propTypes = {
-  quantity: PropTypes.number.isRequired,
+  films: PropTypes.array.isRequired,
 };
 
 export default Films;

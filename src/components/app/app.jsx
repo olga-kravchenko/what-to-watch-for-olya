@@ -9,12 +9,12 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import PageNotFound from "../page-not-found/page-not-found";
 
-const App = ({genre, year}) => {
+const App = ({films, genre, year}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" >
-          <Main genre={genre} year={year}/>
+          <Main films={films} genre={genre} year={year}/>
         </Route>
         <Route path="/login" >
           <Login/>
@@ -42,6 +42,7 @@ const App = ({genre, year}) => {
 App.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
+  films: PropTypes.array.isRequired,
 };
 
 export default App;

@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import Header from "../header/header";
 import Genres from "../genres/genres";
 import Footer from "../footer/footer";
-import {films} from "../../mocks/films";
 
-const Main = ({genre, year}) => {
-  console.log(films);
+const Main = ({films, genre, year}) => {
   return (
     <>
       <section className="movie-card">
@@ -58,7 +56,7 @@ const Main = ({genre, year}) => {
 
           <Genres/>
 
-          <Films quantity={12}/>
+          <Films films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -73,6 +71,7 @@ const Main = ({genre, year}) => {
 Main.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
+  films: PropTypes.array.isRequired,
 };
 
 export default Main;
