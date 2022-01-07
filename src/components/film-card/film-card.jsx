@@ -11,7 +11,7 @@ const FilmCard = ({film}) => {
     evt.preventDefault();
     history.push(pathToFilm);
     window.scrollTo(0, 0);
-  }
+  };
 
   return (
     <article className="small-movie-card catalog__movies-card" id={id}>

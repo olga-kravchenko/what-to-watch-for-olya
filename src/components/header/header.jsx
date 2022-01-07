@@ -16,7 +16,7 @@ const Header = ({type, film}) => {
 
   const onAvatarClick = () => {
     history.push(`/mylist`);
-  }
+  };
 
   return (
     <header className={`page-header ${headerClass}`}>
@@ -36,6 +36,7 @@ const Header = ({type, film}) => {
 
 Header.propTypes = {
   type: PropTypes.string,
+  film: PropTypes.object,
 };
 
 export default Header;

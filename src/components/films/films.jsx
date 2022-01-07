@@ -7,13 +7,13 @@ const Films = ({films}) => {
   const [activeFilmId, setActiveFilmId] = useState({activeFilmId: ``});
   return (
     <div className="catalog__movies-list"
-         onMouseOver={({target}) => {
-           if (target.className === `catalog__movies-list`) {
-             return;
-           }
-           const hoverFilm = target.closest(`article`).id;
-           setActiveFilmId({...activeFilmId, activeFilmId: hoverFilm});
-         }}>
+      onMouseOver={({target}) => {
+        if (target.className === `catalog__movies-list`) {
+          return;
+        }
+        const hoverFilm = target.closest(`article`).id;
+        setActiveFilmId({...activeFilmId, activeFilmId: hoverFilm});
+      }}>
 
       {films.map((film, i) => <FilmCard film={film} key={i}/>)}
     </div>);

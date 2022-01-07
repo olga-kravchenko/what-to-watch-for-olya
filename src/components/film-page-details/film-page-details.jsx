@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const MINUTE_QUANTITY_IN_HOUR = 60;
 const formatTime = (minutes) => {
@@ -19,9 +20,7 @@ const FilmPageDetails = ({film}) => {
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
-          <span className="movie-card__details-value">
-                    {starring.join(`, `)}
-                  </span>
+          <span className="movie-card__details-value">{starring.join(`, `)}</span>
         </p>
       </div>
 
@@ -41,6 +40,10 @@ const FilmPageDetails = ({film}) => {
       </div>
     </div>
   );
-}
+};
+
+FilmPageDetails.propTypes = {
+  film: PropTypes.object.isRequired,
+};
 
 export default FilmPageDetails;

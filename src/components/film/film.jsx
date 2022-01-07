@@ -8,6 +8,7 @@ import Films from "../films/films";
 import FilmPageOverview from "../film-page-overview/film-page-overview";
 import FilmPageDetails from "../film-page-details/film-page-details";
 import FilmPageReviews from "../film-page-reviews/film-page-reviews";
+import PropTypes from "prop-types";
 
 const Film = ({films}) => {
   const {id} = useParams();
@@ -21,13 +22,13 @@ const Film = ({films}) => {
     return (
       <Redirect to="/page-not-found"/>
     );
-
   }
+
   const {name, background_image, genre, released, poster_image} = film;
 
   const onPlayClick = () => {
-    history.push(`/player/${id}`)
-  }
+    history.push(`/player/${id}`);
+  };
 
   return (
     <>
@@ -71,8 +72,7 @@ const Film = ({films}) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={poster_image} alt={`${name} poster`} width="218"
-                   height="327"/>
+              <img src={poster_image} alt={`${name} poster`} width="218" height="327"/>
             </div>
 
             <div className="movie-card__desc">
@@ -112,6 +112,10 @@ const Film = ({films}) => {
       </div>
     </>
   );
+};
+
+Film.propTypes = {
+  films: PropTypes.array.isRequired,
 };
 
 export default Film;

@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import Films from "../films/films";
+import PropTypes from "prop-types";
 
 const MyList = ({films}) => {
   return (
@@ -17,6 +18,10 @@ const MyList = ({films}) => {
       <Footer/>
     </div>
   );
+};
+
+MyList.propTypes = {
+  films: PropTypes.array.isRequired,
 };
 
 export default MyList;

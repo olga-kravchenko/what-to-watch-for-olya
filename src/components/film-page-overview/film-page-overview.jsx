@@ -1,20 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const getEstimations = (rating) => {
   let estimation;
   if (rating < 3) {
-    estimation = `Bad`
+    estimation = `Bad`;
   } else if (rating > 3 || rating < 5) {
-    estimation = `Normal`
+    estimation = `Normal`;
   } else if (rating > 5 || rating < 8) {
-    estimation = `Good`
+    estimation = `Good`;
   } else if (rating > 8 || rating < 10) {
-    estimation = `Good`
+    estimation = `Good`;
   } else {
-    estimation = `Awesome`
+    estimation = `Awesome`;
   }
   return estimation;
-}
+};
 
 const FilmPageOverview = ({film, reviewsQuantity}) => {
   const {rating, description, director, starring} = film;
@@ -38,6 +39,11 @@ const FilmPageOverview = ({film, reviewsQuantity}) => {
       </div>
     </>
   );
-}
+};
+
+FilmPageOverview.propTypes = {
+  film: PropTypes.object.isRequired,
+  reviewsQuantity: PropTypes.number.isRequired,
+};
 
 export default FilmPageOverview;

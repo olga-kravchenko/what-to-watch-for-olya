@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Breadcrumbs = ({film}) => {
   return (
@@ -14,6 +15,10 @@ const Breadcrumbs = ({film}) => {
       </ul>
     </nav>
   );
+};
+
+Breadcrumbs.propTypes = {
+  film: PropTypes.object.isRequired,
 };
 
 export default Breadcrumbs;

@@ -1,5 +1,6 @@
 import React from "react";
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const MINUTE_QUANTITY_IN_HOUR = 60;
 const formatTime = (minutes) => {
@@ -11,14 +12,23 @@ const formatTime = (minutes) => {
 const Player = ({films}) => {
   const {id} = useParams();
   const index = films.findIndex((film) => film.id === id);
+  if (index === -1) {
+    return (
+      <Redirect to="/page-not-found"/>
+    );
+  }
   const film = films[index];
-  const time = formatTime(film.run_time)
+  const {run_time, video_link} = film;
+  const time = formatTime(run_time);
 
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg"/>
+      <video src={video_link} className="player__video" poster="img/player-poster.jpg"/>
 
-      <button type="button" className="player__exit">Exit</button>
+      <button type="button" className="player__exit" onClick={(evt) => {
+        evt.preventDefault();
+        window.history.back();
+      }}>Exit</button>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -48,6 +58,10 @@ const Player = ({films}) => {
       </div>
     </div>
   );
+};
+
+Player.propTypes = {
+  films: PropTypes.array.isRequired,
 };
 
 export default Player;
