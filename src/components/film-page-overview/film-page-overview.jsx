@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import FilmProp from "../film/film";
 
 const getEstimations = (rating) => {
   let estimation;
@@ -42,7 +43,7 @@ const FilmPageOverview = ({film, reviewsQuantity}) => {
 };
 
 FilmPageOverview.propTypes = {
-  film: PropTypes.object.isRequired,
+  film: FilmProp,
   reviewsQuantity: PropTypes.number.isRequired,
 };
 

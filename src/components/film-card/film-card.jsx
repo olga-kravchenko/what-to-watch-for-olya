@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {useHistory} from "react-router-dom";
+import FilmProp from "../film/film";
 
 const FilmCard = ({film}) => {
   const {id, name, preview_image} = film;
@@ -27,7 +27,7 @@ const FilmCard = ({film}) => {
 };
 
 FilmCard.propTypes = {
-  film: PropTypes.object.isRequired,
+  film: FilmProp,
 };
 
 export default FilmCard;

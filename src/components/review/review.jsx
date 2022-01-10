@@ -1,6 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
-import PropTypes from "prop-types";
+import ReviewProp from "./review";
 
 const Review = ({review}) => {
   const {id, user, rating, comment, date} = review;
@@ -24,7 +24,7 @@ const Review = ({review}) => {
 };
 
 Review.propTypes = {
-  review: PropTypes.object.isRequired,
+  review: ReviewProp,
 };
 
 export default Review;
