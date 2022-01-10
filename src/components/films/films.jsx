@@ -5,6 +5,7 @@ import {useState} from "react";
 
 const Films = ({films}) => {
   const [activeFilmId, setActiveFilmId] = useState({activeFilmId: ``});
+
   return (
     <div className="catalog__movies-list"
       onMouseOver={({target}) => {
@@ -13,9 +14,12 @@ const Films = ({films}) => {
         }
         const hoverFilm = target.closest(`article`).id;
         setActiveFilmId({...activeFilmId, activeFilmId: hoverFilm});
+      }}
+      onMouseLeave={() => {
+        setActiveFilmId({...activeFilmId, activeFilmId: ``});
       }}>
 
-      {films.map((film, i) => <FilmCard film={film} key={i}/>)}
+      {films.map((film, i) => <FilmCard film={film} key={i} activeFilm={activeFilmId.activeFilmId}/>)}
     </div>);
 };
 
