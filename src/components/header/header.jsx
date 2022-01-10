@@ -1,15 +1,14 @@
 import React from "react";
 import Logo from "../logo/logo";
 import PropTypes from "prop-types";
-import {useHistory, useLocation} from "react-router-dom";
-import Breadcrumbs from "../breadcrumbs/breadcrumbs";
+import {useHistory, Link} from "react-router-dom";
 
-const Header = ({type, film}) => {
-  const {pathname} = useLocation();
+const Header = (props) => {
+  const isAuth = false;
   const history = useHistory();
   let headerClass;
-  if (type) {
-    headerClass = type === `movie` ? `movie-card__head` : `user-page__head`;
+  if (props.type) {
+    headerClass = props.type === `movie` ? `movie-card__head` : `user-page__head`;
   } else {
     headerClass = ``;
   }
@@ -21,14 +20,15 @@ const Header = ({type, film}) => {
   return (
     <header className={`page-header ${headerClass}`}>
       <Logo type=""/>
-      {pathname.indexOf(`review`) > -1 ? <Breadcrumbs film={film}/> : ``}
-      {pathname === `/mylist` ? <h1 className="page-title user-page__title">My list</h1> : ``}
-      {pathname === `/login` ?
-        <h1 className="page-title user-page__title">Sign in</h1> :
+      {props.children}
+      {isAuth ?
         <div className="user-block">
           <div className="user-block__avatar">
             <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" onClick={onAvatarClick}/>
           </div>
+        </div> :
+        <div className="user-block">
+          <Link to="/login" className="user-block__link">Sign in</Link>
         </div>}
     </header>
   );
@@ -36,7 +36,7 @@ const Header = ({type, film}) => {
 
 Header.propTypes = {
   type: PropTypes.string,
-  film: PropTypes.object,
+  children: PropTypes.object,
 };
 
 export default Header;

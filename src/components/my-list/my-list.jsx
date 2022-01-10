@@ -7,7 +7,9 @@ import PropTypes from "prop-types";
 const MyList = ({films}) => {
   return (
     <div className="user-page">
-      <Header type="user"/>
+      <Header type="user">
+        <h1 className="page-title user-page__title">My list</h1>
+      </Header>
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>

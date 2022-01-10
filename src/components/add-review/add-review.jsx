@@ -3,6 +3,7 @@ import Header from "../header/header";
 import {Redirect, useParams} from "react-router-dom";
 import ReviewForm from "../review-form/review-form";
 import PropTypes from "prop-types";
+import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
 const AddReview = ({films}) => {
   const {id} = useParams();
@@ -24,7 +25,9 @@ const AddReview = ({films}) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header film={film}/>
+        <Header film={film}>
+          <Breadcrumbs film={film}/>
+        </Header>
 
         <div className="movie-card__poster movie-card__poster--small">
           <img src={poster_image} alt="The Grand Budapest Hotel poster" width="218" height="327"/>

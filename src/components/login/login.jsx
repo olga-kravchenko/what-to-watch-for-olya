@@ -5,7 +5,9 @@ import Header from "../header/header";
 const Login = () => {
   return (
     <div className="user-page">
-      <Header type="user"/>
+      <Header type="user">
+        <h1 className="page-title user-page__title">Sign in</h1>
+      </Header>
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">
