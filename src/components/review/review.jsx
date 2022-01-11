@@ -11,13 +11,11 @@ const Review = ({review}) => {
     <div className="review" id={id}>
       <blockquote className="review__quote">
         <p className="review__text">{comment}</p>
-
         <footer className="review__details">
           <cite className="review__author" id={user.id}>{user.name}</cite>
           <time className="review__date" dateTime={dateTimeFormat}>{reviewDate}</time>
         </footer>
       </blockquote>
-
       <div className="review__rating">{rating}</div>
     </div>
   );

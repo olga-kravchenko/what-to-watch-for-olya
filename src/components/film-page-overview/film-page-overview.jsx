@@ -3,15 +3,19 @@ import PropTypes from "prop-types";
 import FilmProp from "../film/film";
 
 const getEstimations = (rating) => {
+  const BAD_MAX_QUANTITY = 3;
+  const NORMAL_MAX_QUANTITY = 5;
+  const GOOD_MAX_QUANTITY = 8;
+  const VERY_GOOD_MAX_QUANTITY = 10;
   let estimation;
-  if (rating < 3) {
+  if (rating < BAD_MAX_QUANTITY) {
     estimation = `Bad`;
-  } else if (rating > 3 || rating < 5) {
+  } else if (rating > BAD_MAX_QUANTITY || rating < NORMAL_MAX_QUANTITY) {
     estimation = `Normal`;
-  } else if (rating > 5 || rating < 8) {
+  } else if (rating > NORMAL_MAX_QUANTITY || rating < GOOD_MAX_QUANTITY) {
     estimation = `Good`;
-  } else if (rating > 8 || rating < 10) {
-    estimation = `Good`;
+  } else if (rating > GOOD_MAX_QUANTITY || rating < VERY_GOOD_MAX_QUANTITY) {
+    estimation = `Very good`;
   } else {
     estimation = `Awesome`;
   }

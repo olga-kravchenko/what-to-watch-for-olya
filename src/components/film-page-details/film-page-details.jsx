@@ -1,8 +1,8 @@
 import React from "react";
 import FilmProp from "../film/film";
 
-const MINUTE_QUANTITY_IN_HOUR = 60;
 const formatTime = (minutes) => {
+  const MINUTE_QUANTITY_IN_HOUR = 60;
   return minutes <= MINUTE_QUANTITY_IN_HOUR ?
     `${minutes}m` :
     `${Math.floor((minutes / MINUTE_QUANTITY_IN_HOUR))}h ${minutes % MINUTE_QUANTITY_IN_HOUR}m`;

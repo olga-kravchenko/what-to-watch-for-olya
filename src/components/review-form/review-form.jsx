@@ -3,6 +3,7 @@ import ReviewStar from "../review-star/review-star";
 import {useState} from "react";
 
 const ReviewForm = () => {
+  const MAX_STAR_QUANTITY = 10;
   const [userForm, setUserForm] = useState({
     "review-text": ``,
     "rating": ``
@@ -13,7 +14,7 @@ const ReviewForm = () => {
     setUserForm({...userForm, [name]: value});
   };
 
-  const starQuantity = Array.from({length: 10}, (_, index) => index + 1);
+  const starQuantity = Array.from({length: MAX_STAR_QUANTITY}, (_, index) => index + 1);
   return (
     <div className="add-review">
       <form action="#" className="add-review__form">
@@ -23,7 +24,6 @@ const ReviewForm = () => {
               <ReviewStar number={number} key={i}/>))}
           </div>
         </div>
-
         <div className="add-review__text">
           <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={handleFieldChange}/>
           <div className="add-review__submit">

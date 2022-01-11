@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from "react";
 import FilmProp from "../film/film";
 
 const VideoPlayer = ({film}) => {
+  const VIDEO_PLAY_TIMEOUT = 1000;
   const {preview_video_link, preview_image} = film;
   const videoRef = useRef();
 
@@ -11,7 +12,7 @@ const VideoPlayer = ({film}) => {
         return;
       }
       videoRef.current.play();
-    }, 1000);
+    }, VIDEO_PLAY_TIMEOUT);
   }, []);
 
   return (

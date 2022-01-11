@@ -25,6 +25,7 @@ const Film = ({films}) => {
   const [activeTab, setActiveTab] = useState(`Overview`);
   const history = useHistory();
   const {id} = useParams();
+  const SHOWN_FILM_QUANTITY = 4;
   const reviews = new Array(getRandomNumber(1, 10)).fill(null).map(generateReviews);
 
   const index = films.findIndex((film) => film.id === id);
@@ -35,7 +36,7 @@ const Film = ({films}) => {
     );
   }
   const {name, background_image, genre, released, poster_image} = film;
-  const filmsLikeThis = [...films].filter((fl) => fl.genre === genre).slice(-4);
+  const filmsLikeThis = [...films].filter((fl) => fl.genre === genre).slice(0, SHOWN_FILM_QUANTITY);
 
   const onPlayClick = () => {
     history.push(`/player/${id}`);
