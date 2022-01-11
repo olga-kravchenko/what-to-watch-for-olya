@@ -5,7 +5,12 @@ import Header from "../header/header";
 import Genres from "../genres/genres";
 import Footer from "../footer/footer";
 
+const getFilteredFilmsByGenre = (films, genre) => {
+  return films.filter((e) => e.genre === genre);
+};
+
 const Main = ({films, genre, year}) => {
+  console.log(getFilteredFilmsByGenre(films, `Comedies`));
   return (
     <>
       <section className="movie-card">

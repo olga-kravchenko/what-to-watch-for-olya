@@ -9,7 +9,7 @@ const DESCRIPTION = [
   `Various versions have evolved over the years, sometimes by accident.`,
   `The standard chunk of Lorem Ipsum used since the 1500s.`,
 ];
-const GENRES_NAME = [`All genres`, `Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
+const GENRES_NAME = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
 const POSTERS_IMG = [
   `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
   `img/aviator.jpg`, `img/bohemian-rhapsody.jpg`, `img/dardjeeling-limited.jpg`,
