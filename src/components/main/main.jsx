@@ -4,13 +4,17 @@ import PropTypes from 'prop-types';
 import Header from "../header/header";
 import Genres from "../genres/genres";
 import Footer from "../footer/footer";
+import {connect} from "react-redux";
 
 const getFilteredFilmsByGenre = (films, genre) => {
+  if (genre === `All genres`) {
+    return films;
+  }
   return films.filter((e) => e.genre === genre);
 };
 
 const Main = ({films, genre, year}) => {
-  console.log(getFilteredFilmsByGenre(films, `Comedies`));
+  const filteredFilms = getFilteredFilmsByGenre(films, genre);
   return (
     <>
       <section className="movie-card">
@@ -59,9 +63,9 @@ const Main = ({films, genre, year}) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <Genres/>
+          <Genres films={films}/>
 
-          <Films films={films}/>
+          <Films films={filteredFilms}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -76,7 +80,12 @@ const Main = ({films, genre, year}) => {
 Main.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  films: PropTypes.array.isRequired,
+  films: PropTypes.array,
 };
 
-export default Main;
+const mapStateToProps = (state) => ({
+  genre: state.genre,
+  films: state.films,
+});
+
+export default connect(mapStateToProps, null)(Main);

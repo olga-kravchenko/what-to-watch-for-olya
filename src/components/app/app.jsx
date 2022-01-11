@@ -9,12 +9,12 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 import PageNotFound from "../page-not-found/page-not-found";
 
-const App = ({films, genre, year}) => {
+const App = ({films, year}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" >
-          <Main films={films} genre={genre} year={year}/>
+          <Main year={year}/>
         </Route>
         <Route path="/login" >
           <Login/>

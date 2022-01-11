@@ -2,4 +2,11 @@ const ActionType = {
   CHANGE_GENRE: `main/changeGenre`,
 };
 
-export {ActionType};
+const ActionCreator = {
+  changeGenre: (genre) => ({
+    type: ActionType.CHANGE_GENRE,
+    payload: genre,
+  }),
+};
+
+export {ActionType, ActionCreator};
