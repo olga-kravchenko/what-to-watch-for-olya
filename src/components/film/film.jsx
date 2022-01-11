@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import {Redirect, useParams} from "react-router-dom";
-import {generateFilm, generateReviews, getRandomNumber} from "../../mocks/films";
+import {generateReviews, getRandomNumber} from "../../mocks/films";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import Films from "../films/films";
@@ -9,11 +9,22 @@ import FilmPageOverview from "../film-page-overview/film-page-overview";
 import FilmPageDetails from "../film-page-details/film-page-details";
 import FilmPageReviews from "../film-page-reviews/film-page-reviews";
 import PropTypes from "prop-types";
+import FilmTabs from "../film-tabs/film-tabs";
+
+const renderFilmInfo = (type, film, reviews) => {
+  if (type === `Overview`) {
+    return (<FilmPageOverview film={film} reviewsQuantity={reviews.length}/>);
+  } else if (type === `Details`) {
+    return (<FilmPageDetails film={film}/>);
+  } else {
+    return (<FilmPageReviews reviews={reviews}/>);
+  }
+};
 
 const Film = ({films}) => {
-  const {id} = useParams();
+  const [activeTab, setActiveTab] = useState(`Overview`);
   const history = useHistory();
-  const filmsLikeThis = new Array(4).fill(null).map(generateFilm);
+  const {id} = useParams();
   const reviews = new Array(getRandomNumber(1, 10)).fill(null).map(generateReviews);
 
   const index = films.findIndex((film) => film.id === id);
@@ -23,8 +34,8 @@ const Film = ({films}) => {
       <Redirect to="/page-not-found"/>
     );
   }
-
   const {name, background_image, genre, released, poster_image} = film;
+  const filmsLikeThis = [...films].filter((fl) => fl.genre === genre).slice(-4);
 
   const onPlayClick = () => {
     history.push(`/player/${id}`);
@@ -76,26 +87,8 @@ const Film = ({films}) => {
             </div>
 
             <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <FilmPageOverview film={film} reviewsQuantity={reviews.length}/>
-
-              <FilmPageDetails film={film}/>
-
-              <FilmPageReviews reviews={reviews} />
-
+              <FilmTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
+              {renderFilmInfo(activeTab, film, reviews)}
             </div>
           </div>
         </div>
@@ -104,10 +97,8 @@ const Film = ({films}) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <Films films={filmsLikeThis}/>
+          {filmsLikeThis.length ? <Films films={filmsLikeThis}/> : <h2>Does not found</h2>}
         </section>
-
         <Footer/>
       </div>
     </>

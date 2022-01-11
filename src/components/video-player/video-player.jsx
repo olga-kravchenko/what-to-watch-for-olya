@@ -7,9 +7,12 @@ const VideoPlayer = ({film}) => {
 
   useEffect(() => {
     setTimeout(() => {
+      if (videoRef.current === null) {
+        return;
+      }
       videoRef.current.play();
     }, 1000);
-  });
+  }, []);
 
   return (
     <video src={preview_video_link} poster={preview_image} muted width="280" height="175" ref={videoRef}/>
