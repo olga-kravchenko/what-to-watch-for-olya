@@ -5,6 +5,7 @@ import Header from "../header/header";
 import Genres from "../genres/genres";
 import Footer from "../footer/footer";
 import {connect} from "react-redux";
+import ShowMoreButton from "../show-more-button/show-more-button";
 
 const getFilteredFilmsByGenre = (films, genre) => {
   if (genre === `All genres`) {
@@ -29,8 +30,7 @@ const Main = ({films, genre, year}) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
-                height="327"/>
+              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
             </div>
 
             <div className="movie-card__desc">
@@ -67,9 +67,7 @@ const Main = ({films, genre, year}) => {
 
           <Films films={filteredFilms}/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMoreButton/>
         </section>
 
         <Footer/>
