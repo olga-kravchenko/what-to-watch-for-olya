@@ -14,8 +14,10 @@ const getFilteredFilmsByGenre = (films, genre) => {
   return films.filter((e) => e.genre === genre);
 };
 
-const Main = ({films, genre, year}) => {
+const Main = ({films, genre, year, shownFilmQuantity}) => {
   const filteredFilms = getFilteredFilmsByGenre(films, genre);
+  const filmsToShow = shownFilmQuantity ? filteredFilms.slice(0, shownFilmQuantity) : filteredFilms;
+
   return (
     <>
       <section className="movie-card">
@@ -65,9 +67,9 @@ const Main = ({films, genre, year}) => {
 
           <Genres films={films}/>
 
-          <Films films={filteredFilms}/>
+          <Films films={filmsToShow}/>
 
-          <ShowMoreButton/>
+          {filteredFilms.length > shownFilmQuantity ? <ShowMoreButton/> : ``}
         </section>
 
         <Footer/>
@@ -79,11 +81,13 @@ Main.propTypes = {
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   films: PropTypes.array,
+  shownFilmQuantity: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({
   genre: state.genre,
   films: state.films,
+  shownFilmQuantity: state.shownFilmQuantity,
 });
 
 export default connect(mapStateToProps, null)(Main);

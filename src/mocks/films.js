@@ -80,6 +80,6 @@ const generateReviews = () => {
   };
 };
 
-const films = new Array(8).fill(null).map(generateFilm);
+const films = new Array(18).fill(null).map(generateFilm);
 
 export {films, generateReviews, generateFilm, getRandomNumber};
