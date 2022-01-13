@@ -1,6 +1,5 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
-import FilmProp from "../film/film";
 import VideoPlayer from "../video-player/video-player";
 import PropTypes from "prop-types";
 
@@ -30,7 +29,7 @@ const FilmCard = ({film, activeFilm}) => {
 };
 
 FilmCard.propTypes = {
-  film: FilmProp,
+  film: PropTypes.object.isRequired,
   activeFilm: PropTypes.string.isRequired,
 };
 

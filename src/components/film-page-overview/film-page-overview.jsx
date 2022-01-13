@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FilmProp from "../film/film";
 
 const getEstimations = (rating) => {
   const BAD_MAX_QUANTITY = 3;
@@ -47,7 +46,7 @@ const FilmPageOverview = ({film, reviewsQuantity}) => {
 };
 
 FilmPageOverview.propTypes = {
-  film: FilmProp,
+  film: PropTypes.object.isRequired,
   reviewsQuantity: PropTypes.number.isRequired,
 };
 

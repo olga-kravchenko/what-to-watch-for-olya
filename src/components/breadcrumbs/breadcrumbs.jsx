@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import FilmProp from "../film/film";
-
+import PropTypes from "prop-types";
 
 const Breadcrumbs = ({film}) => {
   return (
@@ -10,7 +9,10 @@ const Breadcrumbs = ({film}) => {
         <li className="breadcrumbs__item">
           <Link to={`/films/${film.id}`} className="breadcrumbs__link">{film.name}</Link>
         </li>
-        <li className="breadcrumbs__item">
+        <li className="Breadcrumbs.propTypes = {
+  film: PropTypes.object.isRequired,
+};
+breadcrumbs__item">
           <a className="breadcrumbs__link">Add review</a>
         </li>
       </ul>
@@ -19,7 +21,7 @@ const Breadcrumbs = ({film}) => {
 };
 
 Breadcrumbs.propTypes = {
-  film: FilmProp,
+  film: PropTypes.object.isRequired,
 };
 
 export default Breadcrumbs;

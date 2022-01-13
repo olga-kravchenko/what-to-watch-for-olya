@@ -1,5 +1,5 @@
 import React from "react";
-import FilmProp from "../film/film";
+import PropTypes from "prop-types";
 
 const formatTime = (minutes) => {
   const MINUTE_QUANTITY_IN_HOUR = 60;
@@ -43,7 +43,7 @@ const FilmPageDetails = ({film}) => {
 };
 
 FilmPageDetails.propTypes = {
-  film: FilmProp,
+  film: PropTypes.object.isRequired,
 };
 
 export default FilmPageDetails;
